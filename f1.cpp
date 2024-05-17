@@ -79,3 +79,14 @@ int main()
     }
 
     printFlightInfo(Flights);
+
+
+    // Free allocated memory
+    for (int i = 0; i < MAX_NUMBER_OF_FLIGHTS; i++) {
+        free(Flights[i].destination);
+        free(Flights[i].date);
+    }
+
+    return 0;
+
+}
