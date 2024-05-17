@@ -36,3 +36,15 @@ void fillFlightInfo(struct FlightInfo* flight, const char* destination, const ch
         strcpy_s((*flight).date, strlen(date) + 1, date);
     }
 }
+
+
+// Printing flight information
+void printFlightInfo(struct FlightInfo Flights[])
+{
+    printf("%-35s %-35s\n", "Destination", "Date");
+
+    for (int i = 0; i < MAX_NUMBER_OF_FLIGHTS; i++)
+    {
+        printf("%-35s %-35s\n", Flights[i].destination, Flights[i].date);
+    }
+}
