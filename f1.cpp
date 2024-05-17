@@ -48,3 +48,34 @@ void printFlightInfo(struct FlightInfo Flights[])
         printf("%-35s %-35s\n", Flights[i].destination, Flights[i].date);
     }
 }
+
+// Main function
+int main()
+{
+
+    // Array to store flight information
+    struct FlightInfo Flights[MAX_NUMBER_OF_FLIGHTS];
+    char destination[MAX_DESTINATION_LENGTH];
+    char date[MAX_DATE_LENGTH];
+
+    for (int i = 0; i < MAX_NUMBER_OF_FLIGHTS; i++)
+    {
+
+        // To get the destination from the user
+        fgets(destination, sizeof(destination), stdin);
+
+
+        // To get date from the user
+        fgets(date, sizeof(date), stdin);
+
+
+        // Removing newline character
+        destination[strcspn(destination, "\n")] = '\0';
+
+        // Removing newline character
+        date[strcspn(date, "\n")] = '\0';
+
+        fillFlightInfo(&Flights[i], destination, date);
+    }
+
+    printFlightInfo(Flights);
